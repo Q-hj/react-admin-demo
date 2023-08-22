@@ -10,6 +10,11 @@ import React, { lazy } from 'react';
 const Home = lazy(() => import('@/pages/Home'));
 const About = lazy(() => import('@/pages/About'));
 
+// 加载中效果
+const withLoading = (el: JSX.Element) => (
+	<React.Suspense fallback={<div>加载中...</div>}>{el}</React.Suspense>
+);
+
 const baseRouter = [
 	{
 		path: '/',
@@ -17,19 +22,11 @@ const baseRouter = [
 	},
 	{
 		path: '/home',
-		element: (
-			<React.Suspense>
-				<Home />
-			</React.Suspense>
-		),
+		element: withLoading(<Home />),
 	},
 	{
 		path: '/about',
-		element: (
-			<React.Suspense fallback={<div>加载中...</div>}>
-				<About />
-			</React.Suspense>
-		),
+		element: withLoading(<About />),
 	},
 ];
 
