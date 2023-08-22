@@ -1,0 +1,9 @@
+$theme-color: #00a23c;
+body {
+	// 禁用文字选中
+	user-select: none;
+}
+img {
+	// 禁止图片拖动
+	-webkit-user-drag: none;
+}
