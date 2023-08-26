@@ -8,6 +8,9 @@ import { BrowserRouter } from 'react-router-dom';
 // 重置css样式
 import 'reset-css';
 
+// unocss样式
+import 'uno.css';
+
 // 全局css
 import '@/assets/styles/global.scss';
 

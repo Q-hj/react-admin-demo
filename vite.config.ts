@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { fileURLToPath, URL } from 'node:url';
 
+import UnoCSS from 'unocss/vite';
+
 // https://vitejs.dev/config/
 export default defineConfig({
 	resolve: {
@@ -11,5 +13,5 @@ export default defineConfig({
 			'@': fileURLToPath(new URL('./src', import.meta.url)),
 		},
 	},
-	plugins: [react()],
+	plugins: [react(), UnoCSS()],
 });
