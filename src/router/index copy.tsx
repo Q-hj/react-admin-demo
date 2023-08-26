@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // * 两种路由模式的组件： BrowserRouter(History模式)， HashRouter( Hash模式)
 
 import App from '@/App';
-import Home from '@/pages/Home';
-import About from '@/pages/About';
+import Home from '@/pages/Layout';
+import User from '@/pages/User';
 
 const baseRouter = () => (
 	<BrowserRouter>
@@ -26,8 +26,8 @@ const baseRouter = () => (
 				element={<Home />}
 			/>
 			<Route
-				path="/about"
-				element={<About />}
+				path="/User"
+				element={<User />}
 			/>
 		</Routes>
 	</BrowserRouter>
