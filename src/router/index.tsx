@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import React, { lazy } from 'react';
 
 // import Home from '@/pages/Home';
-// import About from '@/pages/About';
+// import User from '@/pages/User';
 
 // 懒加载写法
+const Layout = lazy(() => import('@/pages/Layout'));
+
 const Home = lazy(() => import('@/pages/Home'));
-const About = lazy(() => import('@/pages/About'));
+const User = lazy(() => import('@/pages/User'));
 
 // 加载中效果
 const withLoading = (el: JSX.Element) => (
@@ -21,12 +23,18 @@ const baseRouter = [
 		element: <Navigate to="/home" />,
 	},
 	{
-		path: '/home',
-		element: withLoading(<Home />),
-	},
-	{
-		path: '/about',
-		element: withLoading(<About />),
+		path: '/',
+		element: <Layout />,
+		children: [
+			{
+				path: '/home',
+				element: withLoading(<Home />),
+			},
+			{
+				path: '/user',
+				element: withLoading(<User />),
+			},
+		],
 	},
 ];
 
