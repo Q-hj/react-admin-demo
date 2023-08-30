@@ -11,6 +11,9 @@ dependencies:
   antd:
     specifier: ^5.8.4
     version: 5.8.4(react-dom@18.2.0)(react@18.2.0)
+  particlesjs:
+    specifier: ^2.2.3
+    version: 2.2.3
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2318,6 +2321,10 @@ packages:
     resolution: {integrity: sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA==}
     engines: {node: '>= 0.10'}
     dev: true
+
+  /particlesjs@2.2.3:
+    resolution: {integrity: sha512-f0rL80Agqdsrnv/uhlLewv+LMdiXHu9MYPzMv0ZLPM06nLx3zmAXMH882fxqO6Uzb91csli8WlWaYd2XPN0d/Q==}
+    dev: false
 
   /path-exists@4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
