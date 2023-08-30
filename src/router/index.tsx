@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 // * 两种路由模式的组件： BrowserRouter(History模式)， HashRouter( Hash模式)
 
 import React, { lazy } from 'react';
 
 // import Home from '@/pages/Home';
-// import User from '@/pages/User';
+import Login from '@/pages/Login';
 
 // 懒加载写法
 const Layout = lazy(() => import('@/pages/Layout'));
@@ -35,6 +35,14 @@ const baseRouter = [
 				element: withLoading(<User />),
 			},
 		],
+	},
+	{
+		path: '/login',
+		element: <Login />,
+	},
+	{
+		path: '*',
+		element: <Navigate to="/home" />,
 	},
 ];
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Menu } from 'antd';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import {
 	AppstoreOutlined,
@@ -40,13 +40,15 @@ const items: MenuItem[] = [
 	]),
 
 	getItem('功能菜单', 'sub2', <AppstoreOutlined />, [
-		getItem('菜单一', '9'),
+		getItem('登录', '/login'),
 
 		getItem('二级菜单', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
 	]),
 ];
 
 const MainMenu: React.FC = () => {
+	const { pathname } = useLocation();
+
 	// 菜单点击跳转
 	const navigateTo = useNavigate();
 
@@ -54,15 +56,24 @@ const MainMenu: React.FC = () => {
 		if (key.includes('/')) navigateTo(key);
 	};
 
-	// 菜单展开时
-	const [openKeys, setOpenKeys] = useState<string[]>(['']);
+	// 递归查找
+	const hasItem = (item: any) => {
+		if (item.key === pathname) return true;
+		return item.children?.find(hasItem) || false;
+	};
+
+	// 菜单展开
+	const currentOpen = items.find(hasItem)?.key as string;
+
+	const [openKeys, setOpenKeys] = useState<string[]>([currentOpen]);
 	const handleOpenChange = (keys: string[]) => {
-		setOpenKeys([keys.at(-1)!]);
+		console.log(keys.at(-1));
+		setOpenKeys([keys.at(-1)]!);
 	};
 
 	return (
 		<Menu
-			defaultSelectedKeys={['/home']}
+			defaultSelectedKeys={[pathname]}
 			openKeys={openKeys}
 			mode="inline"
 			theme="dark"
